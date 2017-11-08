@@ -91,9 +91,9 @@ export default {
     },
     url: function () {
       if (this.selectedCount === 0) {
-        return this.req.url;
+        return this.$store.state.infoURL + this.req.url
       }
-      return this.req.url + "/" + this.req.name;
+      return this.$store.state.infoURL + this.req.items[this.selected[0]].url.substr(6)
     },
     dir: function () {
       if (this.selectedCount > 1) {

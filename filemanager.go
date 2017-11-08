@@ -67,6 +67,9 @@ type FileManager struct {
 	// edited directly. Use SetBaseURL.
 	BaseURL string
 
+	//for info dispaly
+	InfoURL string
+
 	// NoAuth disables the authentication. When the authentication is disabled,
 	// there will only exist one user, called "admin".
 	NoAuth bool

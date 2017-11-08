@@ -224,6 +224,7 @@ func renderFile(c *fm.Context, w http.ResponseWriter, file string) (int, error) 
 
 	data := map[string]interface{}{
 		"BaseURL":         c.RootURL(),
+		"InfoURL":         c.InfoURL,
 		"NoAuth":          c.NoAuth,
 		"Version":         fm.Version,
 		"CSS":             template.CSS(c.CSS),
