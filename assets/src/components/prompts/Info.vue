@@ -17,10 +17,11 @@
       </template>
 
       <template v-if="!dir()">
-        <p><strong>MD5:</strong> <code><a @click="checksum($event, 'md5')">{{ $t('prompts.show') }}</a></code></p>
+        <!-- <p><strong>MD5:</strong> <code><a @click="checksum($event, 'md5')">{{ $t('prompts.show') }}</a></code></p>
         <p><strong>SHA1:</strong> <code><a @click="checksum($event, 'sha1')">{{ $t('prompts.show') }}</a></code></p>
         <p><strong>SHA256:</strong> <code><a @click="checksum($event, 'sha256')">{{ $t('prompts.show') }}</a></code></p>
-        <p><strong>SHA512:</strong> <code><a @click="checksum($event, 'sha512')">{{ $t('prompts.show') }}</a></code></p>
+        <p><strong>SHA512:</strong> <code><a @click="checksum($event, 'sha512')">{{ $t('prompts.show') }}</a></code></p> -->
+        <p><strong>URL:</strong> <code>{{ url() }}</code></p>
       </template>
     </div>
 
@@ -87,6 +88,12 @@ export default {
       // This field won't show when there is more than one
       // file selected.
       return this.req.items[this.selected[0]].name
+    },
+    url: function () {
+      if (this.selectedCount === 0) {
+        return this.req.url;
+      }
+      return this.req.url + "/" + this.req.name;
     },
     dir: function () {
       if (this.selectedCount > 1) {
